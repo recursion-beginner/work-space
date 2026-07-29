@@ -60,12 +60,12 @@ body {
     padding: 16px;
 }
 
-/*about.htmlとdevelopers.htmlのクラス*/
-h3.about, h3.developers{
+/*about.htmlとのクラス*/
+h3.about{
     margin: 0;
     padding-bottom: 16px;
 }
-ul.about, ul.developers{
+ul.about{
     text-align: left;
     padding-left: 20px;
     margin: 0;
@@ -90,41 +90,4 @@ ul.about a:hover {
 footer p{
     font-size: 8px;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-
-
-ul.developers li{
-    line-height: 1.7em;
-    margin-bottom: 8px;
-}
-
-ul.developers a{
-    text-decoration: none;
-}
-
-ul.developers a:hover{
-    text-decoration: none;
-}
-/* 結果ページ */
-#result-page h1 {
-    font-size: 5rem;
-    margin: 10px 0;
-}
-
-#result-page img {
-    width: 150px;
-    margin: 10px auto;
-}
-
-#result-page p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin: 4px 0;
-}
-
-#result-page h4 {
-    font-size: 1rem;
-    margin: 12px 0 2px;
-    border-bottom: 1px solid #dc3545;
 }
