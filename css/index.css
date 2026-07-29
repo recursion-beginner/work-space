@@ -1,0 +1,116 @@
+:root {
+  --main: #df3340;
+  --main-dark: #be2633;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--main);
+  font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+  background: linear-gradient(180deg, #ffecd2 0%, #ffd2bc 50%, #ffb6a5 100%);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.top-page {
+  width: min(100% - 32px, 560px);
+  margin: 0 auto;
+}
+
+.top-content {
+  text-align: center;
+}
+
+.top-title {
+  margin: 0;
+  font-size: clamp(1.9rem, 5vw, 2.55rem);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.12em;
+}
+
+.top-title span {
+  display: block;
+  font-size: 0.94em;
+}
+
+.omikuji-image {
+  display: block;
+  width: clamp(138px, 26vw, 180px);
+  height: auto;
+  margin: 34px auto 38px;
+}
+
+.draw-button {
+  min-width: 0;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  background: var(--main);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgb(179 42 54 / 12%);
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.draw-button:hover {
+  background: var(--main-dark);
+  box-shadow: 0 6px 14px rgb(179 42 54 / 20%);
+  transform: translateY(-2px);
+}
+
+.draw-button:focus-visible,
+.page-links a:focus-visible {
+  outline: 3px solid var(--main);
+  outline-offset: 3px;
+}
+
+.site-footer {
+  margin-top: 46px;
+  text-align: center;
+}
+
+.page-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.4em;
+  font-size: 0.76rem;
+}
+
+.page-links a {
+  color: var(--main);
+  text-decoration: none;
+}
+
+.page-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.copyright {
+  margin: 17px 0 0;
+  font-size: 0.65rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .draw-button {
+    transition: none;
+  }
+}
