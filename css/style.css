@@ -1,1 +1,50 @@
+/* 余白やサイズ計算を統一する */
+* {
+    box-sizing: border-box;
+}
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+
+    /* 淡いオレンジ〜ピンクの背景 */
+    background:
+        radial-gradient(
+            circle at top center,
+            #fff0da 0%,
+            #ffd8c2 45%,
+            #ffb49e 100%
+        );
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        "Hiragino Mincho Pro",
+        serif;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #333333;
+}
+
+/* リンクの基本設定 */
+a {
+    text-decoration: none;
+}
+
+/* フッター */
+.footer {
+    margin-top: 32px;
+    color: #df4855;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
