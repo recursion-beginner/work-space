@@ -1,1 +1,130 @@
+body {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #ffecd2 0%, #fcb69f 100%);
+    /*背景のグラデーション*/
+    margin: 0;
+    font-family: "Yuji Syuku", serif;
+    color: #dc3545;
+}
 
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    /*おみくじとボタンを縦並びにするため*/
+    gap: 20px;
+    /*戻るボタンとomikuji-frameの間隔確保*/
+
+}
+
+.btn {
+    /*ボタンレイアウトです。戻るボタンや、もう一度おみくじを引くボタンなどに使ってください*/
+    display: inline-block;
+    text-decoration: none;
+
+    background-color: #dc3545;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #c0392b;
+}
+
+
+.hidden {
+    display: none !important;
+    /*hiddenクラスを入れると表示されなくなる、表示したいときはhiddenクラスを消す*/
+}
+
+
+
+.omikuji-frame {
+    /*おみくじの赤フレーム*/
+    width: 280px;
+
+    border: thick double red;
+    outline: 0.2rem solid red;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    background-color: white;
+    box-sizing: border-box;
+    padding: 16px;
+}
+
+/*about.htmlとdevelopers.htmlのクラス*/
+h3.about, h3.developers{
+    margin: 0;
+    padding-bottom: 16px;
+}
+ul.about, ul.developers{
+    text-align: left;
+    padding-left: 20px;
+    margin: 0;
+    list-style-type: square;
+
+}
+
+ul.about li {
+    line-height: 1.7em;
+    margin-bottom: 8px;
+}
+
+ul.about a {
+    text-decoration: none;
+}
+
+ul.about a:hover {
+    text-decoration: none;
+}
+
+
+footer p{
+    font-size: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+ul.developers li{
+    line-height: 1.7em;
+    margin-bottom: 8px;
+}
+
+ul.developers a{
+    text-decoration: none;
+}
+
+ul.developers a:hover{
+    text-decoration: none;
+}
+/* 結果ページ */
+#result-page h1 {
+    font-size: 5rem;
+    margin: 10px 0;
+}
+
+#result-page img {
+    width: 150px;
+    margin: 10px auto;
+}
+
+#result-page p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 4px 0;
+}
+
+#result-page h4 {
+    font-size: 1rem;
+    margin: 12px 0 2px;
+    border-bottom: 1px solid #dc3545;
+}
