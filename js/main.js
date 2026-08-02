@@ -100,16 +100,28 @@ class Omikuji {
         return Omikuji.fortuneImagePaths[fortune];
     }
 
-    getFortune() {
-        const rand = Math.random() * 100;
-        let rate = 0;
+    static drawFortune(random = Math.random) {
+        const fortunes = Object.entries(Omikuji.fortunes);
+        const totalWeight = fortunes.reduce((total, [, weight]) => total + weight, 0);
 
-        for (const name in Omikuji.fortunes) {
-            rate += Omikuji.fortunes[name];
-            if (rand < rate) {
+        if (totalWeight <= 0) {
+            throw new Error("運勢の重みは合計が1以上になるように設定してください。");
+        }
+
+        let winningNumber = random() * totalWeight;
+
+        for (const [name, weight] of fortunes) {
+            winningNumber -= weight;
+            if (winningNumber < 0) {
                 return name;
             }
         }
+
+        return fortunes[fortunes.length - 1][0];
+    }
+
+    getFortune() {
+        return Omikuji.drawFortune();
     }
     
     getFortuneMessage(fortune) {
@@ -160,5 +172,4 @@ class Omikuji {
         return Math.floor(Math.random() * range);
     }
 }
-
 
