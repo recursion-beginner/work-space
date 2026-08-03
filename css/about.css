@@ -1,15 +1,4 @@
-/*背景のグラデーション・文字フォント*/
-body {
-    min-height: 100vh;
-    background: linear-gradient(to bottom, #ffecd2 0%, #fcb69f 100%);
-    margin: 0;
-    font-family: "Yu Mincho",
-        "Hiragino Mincho ProN",
-        "Hiragino Mincho Pro",
-        serif;
-    color: #dc3545;
-}
-
+/*配置*/
 .page-container {
     display: flex;
     justify-content: center;
