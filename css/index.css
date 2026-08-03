@@ -9,7 +9,6 @@
   box-sizing: border-box;
 }
 
-<<<<<<< Updated upstream
 body {
   min-width: 320px;
   min-height: 100vh;
@@ -27,8 +26,6 @@ body {
     #ffb6a5 100%
   );
 }
-=======
->>>>>>> Stashed changes
 
 button,
 a {
