@@ -1,4 +1,9 @@
 /* 余白やサイズ計算を統一する */
+:root {
+  --main: #df3340;
+  --main-dark: #be2633;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -32,7 +37,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    color: #333333;
+    color: var(--main);
 }
 
 /* リンクの基本設定 */
