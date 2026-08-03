@@ -44,22 +44,28 @@ cd <リポジトリ名>
 
 ```text
 .
-├── index.html
+├── css
+│   ├── about.css
+│   ├── developers.css
+│   ├── index.css
+│   └── style.css
+├── imgs
+│   ├── fortune
+│   │   ├── omikuji_chuukichi.png
+│   │   ├── omikuji_daikichi.png
+│   │   ├── omikuji_daikyou.png
+│   │   ├── omikuji_kichi.png
+│   │   ├── omikuji_kyou.png
+│   │   ├── omikuji_suekichi.png
+│   │   ├── omikuji_syoukichi.png
+│   │   └── shichifukujin_takarabune.png
+│   └── omikuji.png
+├── js
+│   └── main.js
+├── README.md
 ├── about.html
 ├── developers.html
-├── css
-│   ├── about.css
-│   ├── developers.css
-│   ├── index.css
-│   └── style.css
-├── js
-│   └── main.js
-├── imgs
-│   ├── omikuji.png
-│   └── fortune
-│       ├── xxx.png
-│       └── xxx.png
-└── README.md
+└── index.html
 ```
 
 ## チーム開発の進め方
