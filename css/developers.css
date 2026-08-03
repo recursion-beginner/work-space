@@ -1,0 +1,163 @@
+/* 開発者一覧ページ全体 */
+.main-content {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 開発者一覧の白いカード */
+.developers-card {
+    position: relative;
+
+    width: min(370px, calc(100% - 40px));
+    padding: 36px 38px 30px;
+
+    background-color: #ffffff;
+
+    /* 外側の赤い枠線 */
+    border: 4px solid #ff1e1e;
+}
+
+/*内側の赤い枠線*/
+.developers-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 5px;
+
+    border: 2px solid #ff1e1e;
+    /*内容のクリックを邪魔しないようにする*/
+    pointer-events: none;
+}
+
+/*見出し*/
+.developers-title {
+    position: relative;
+
+    margin: 0 0 28px;
+
+    color: #df3548;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 0.08em;
+}
+
+/* 開発者一覧 */
+.developers-list {
+    position: relative;
+
+    width: max-content;
+    margin: 0 auto;
+    padding: 0;
+
+    list-style-type: none;
+}
+
+/* 各開発者 */
+.developers-list li {
+    display: grid;
+    grid-template-columns: 8px 1fr;
+    align-items: center;
+    column-gap: 10px;
+
+    margin-bottom: 22px;
+}
+
+.developers-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* 四角形のマーク */
+.developers-list li::before {
+    content: "";
+
+    width: 8px;
+    height: 8px;
+
+    background-color: #df3548;
+}
+
+/* GitHubのリンク */
+.developers-list a {
+    color: #181cff;
+    font-size: 18px;
+    letter-spacing: 0.12em;
+    text-align: left;
+
+    transition:
+        color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.developers-list a:hover {
+    color: #df3548;
+    text-decoration: underline;
+}
+
+/*Tabキーでリンクを選択するときのエフェクト*/
+.developers-list a:focus-visible {
+    outline: 2px solid #df3548;
+    outline-offset: 4px;
+}
+
+/*戻るボタン*/
+.back-button {
+    min-width: 82px;
+    margin-top: 22px;
+    padding: 11px 20px;
+
+    background-color: #df3548;
+    color: #ffffff;
+
+    border-radius: 9999px;
+
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 0.08em;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #bf2639;
+    transform: translateY(-2px);
+}
+
+.back-button:active {
+    transform: translateY(0);
+}
+
+.back-button:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* スマートフォン向け */
+@media (max-width: 480px) {
+    body {
+        padding: 30px 0;
+    }
+
+    .developers-card {
+        width: calc(100% - 32px);
+        padding: 32px 30px 28px;
+    }
+
+    .developers-title {
+        font-size: 22px;
+    }
+
+    .developers-list a {
+        font-size: 17px;
+    }
+
+    .footer {
+        margin-top: 26px;
+    }
+}

@@ -1,0 +1,75 @@
+/*配置*/
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/*ボタン*/
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #dc3545;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #c0392b;
+}
+
+/*hiddenクラスを入れると画面表示されなくなる、消すと再度表示*/
+.hidden {
+    display: none !important;
+}
+
+/*おみくじフレーム*/
+.omikuji-frame {  
+    width: 280px;
+    border: thick double red;
+    outline: 0.2rem solid red;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 16px;
+}
+
+/*about.htmlのクラス*/
+h3.about {
+    margin: 0;
+    padding-bottom: 16px;
+}
+
+ul.about {
+    text-align: left;
+    padding-left: 20px;
+    margin: 0;
+    list-style-type: square;
+}
+
+ul.about li {
+    line-height: 1.7em;
+    margin-bottom: 8px;
+}
+
+ul.about a {
+    text-decoration: none;
+}
+
+ul.about a:hover {
+    text-decoration: none;
+}
+
+
+footer p {
+    font-size: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
