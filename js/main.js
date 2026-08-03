@@ -33,7 +33,7 @@ class Omikuji {
         "末吉": "imgs/fortune/omikuji_suekichi.png",
         "凶": "imgs/fortune/omikuji_kyou.png",
         "大凶": "imgs/fortune/omikuji_daikyou.png",
-    })
+    });
 
     static fortuneMessages = Object.freeze({
         choudaikichi: "今日は最高の一日。あらゆることが上手くいくでしょう。",
@@ -67,9 +67,9 @@ class Omikuji {
             "恋路はゆるやかに開けていきます。誠実な心を忘れないように。",
         ],
         kyouToDaikyou: [
-           "すれ違いの兆しがあります。相手の言葉に耳を傾けるべきです。",
+            "すれ違いの兆しがあります。相手の言葉に耳を傾けるべきです。",
             "感情に任せた振る舞いは慎むべきです。思いやりが福を呼ぶでしょう。",
-            "恋路に迷いがあるでしょう。焦らず己を見つめ直す時と良いです。", 
+            "恋路に迷いがあるでしょう。焦らず己を見つめ直す時です。", 
         ],
     });
 
@@ -173,3 +173,100 @@ class Omikuji {
     }
 }
 
+// DOM操作
+const topContent = document.querySelector("#topContent");
+const resultContent = document.querySelector("#resultContent");
+const siteFooter = document.querySelector("#siteFooter");
+
+const drawButton = document.querySelector("#drawButton");
+const retryButton = document.querySelector("#retryButton");
+const omikujiImage = document.querySelector(".omikuji-image");
+
+const fortuneImage = document.querySelector("#fortuneImage");
+const fortuneName = document.querySelector("#fortuneName");
+const fortuneMessage = document.querySelector("#fortuneMessage");
+const loveFortuneMessage = document.querySelector(
+    "#loveFortuneMessage"
+);
+const financialFortuneMessage = document.querySelector(
+    "#financialFortuneMessage"
+);
+const luckyItem = document.querySelector("#luckyItem");
+const luckyLang = document.querySelector("#luckyLang");
+
+
+function showOmikujiResult() {
+    // 新しいおみくじ結果を生成する
+    const omikuji = new Omikuji();
+
+    // 生成された結果をHTMLに設定する
+    fortuneImage.src = omikuji.fortuneImagePath;
+    fortuneImage.alt = `${omikuji.fortune}のおみくじ画像`;
+
+    fortuneName.textContent = omikuji.fortune;
+    fortuneMessage.textContent = omikuji.fortuneMessage;
+    loveFortuneMessage.textContent =
+        omikuji.loveFortuneMessage;
+    financialFortuneMessage.textContent =
+        omikuji.financialFortuneMessage;
+    luckyItem.textContent = omikuji.luckyItem;
+    luckyLang.textContent = omikuji.luckyLang;
+
+    // トップ画面を隠して結果画面を表示する
+    topContent.hidden = true;
+    resultContent.hidden = false;
+
+    // 結果画面ではフッターを非表示
+    siteFooter.hidden = true;
+}
+
+
+let isDrawing = false;
+
+function drawOmikuji() {
+    // アニメーション中の連続クリックを防ぐ
+    if (isDrawing) {
+        return;
+    }
+
+    isDrawing = true;
+    drawButton.disabled = true;
+
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    // アニメーションを減らす設定の利用者には、すぐ結果を表示する
+    if (prefersReducedMotion) {
+        showOmikujiResult();
+
+        drawButton.disabled = false;
+        isDrawing = false;
+        return;
+    }
+
+    omikujiImage.classList.add("is-shaking");
+
+    omikujiImage.addEventListener(
+        "animationend",
+        () => {
+            omikujiImage.classList.remove("is-shaking");
+
+            showOmikujiResult();
+
+            drawButton.disabled = false;
+            isDrawing = false;
+        },
+        { once: true }
+    );
+}
+
+drawButton.addEventListener("click", drawOmikuji);
+
+retryButton.addEventListener("click", () => {
+    resultContent.hidden = true;
+    topContent.hidden = false;
+
+    // トップ画面ではフッターを再表示
+    siteFooter.hidden = false;
+});

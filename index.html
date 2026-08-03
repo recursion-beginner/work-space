@@ -11,14 +11,53 @@
 
 <body>
   <main class="top-page">
-    <section class="top-content">
+    <section class="top-content" id="topContent">
       <h1 class="top-title">運勢を占ってみよう！</h1>
       <img src="imgs/omikuji.png" alt="おみくじ箱" class="omikuji-image">
       <button id="drawButton" class="draw-button" type="button">おみくじを引く</button>
     </section>
+
+    <!--おみくじを引いたあとの画面-->
+    <section id="resultContent" class="result-content" hidden>
+      <article class="omikuji-card">
+        <h1 class="result-title">ソフトウェア開発みくじ</h1>
+
+        <div class="fortune-visual">
+          <img id="fortuneImage" src="" alt="" class="fortune-image">
+          <h2 id="fortuneName" class="fortune-name"></h2>
+        </div>
+
+        <div class="fortune-message-area">
+          <h3 class="fortune-heading">総合運</h3>
+          <p id="fortuneMessage" class="fortune-text"></p>
+
+          <h3 class="fortune-heading">恋愛運</h3>
+          <p id="loveFortuneMessage" class="fortune-text"></p>
+
+          <h3 class="fortune-heading">金運</h3>
+          <p id="financialFortuneMessage" class="fortune-text"></p>
+
+          <div class="lucky-area">
+            <p class="fortune-text">
+              ラッキーアイテム：
+              <span id="luckyItem"></span>
+            </p>
+
+            <p class="fortune-text">
+              ラッキー言語：
+              <span id="luckyLang"></span>
+            </p>
+          </div>
+        </div>
+
+        <button id="retryButton" class="draw-button" type="button">
+          トップに戻る
+        </button>
+      </article>
+    </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" id="siteFooter">
     <nav class="page-links">
       <a href="about.html">このおみくじについて</a>
       <span>|</span>

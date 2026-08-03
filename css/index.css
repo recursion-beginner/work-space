@@ -15,10 +15,16 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   color: var(--main);
-  font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
-  background: linear-gradient(180deg, #ffecd2 0%, #ffd2bc 50%, #ffb6a5 100%);
+  font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN",
+    "Noto Serif JP", serif;
+  background: linear-gradient(
+    180deg,
+    #ffecd2 0%,
+    #ffd2bc 50%,
+    #ffb6a5 100%
+  );
 }
 
 button,
@@ -32,6 +38,11 @@ a {
 }
 
 .top-content {
+  min-height: calc(100vh - 130px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -109,8 +120,170 @@ a {
   font-size: 0.65rem;
 }
 
+/* hidden属性が付いている要素を非表示にする */
+[hidden] {
+  display: none !important;
+}
+
+/* おみくじ結果画面 */
+.result-content {
+  width: 100%;
+  padding: 28px 0 12px;
+}
+
+/* おみくじカード */
+.omikuji-card {
+  width: min(100%, 380px);
+  margin: 0 auto;
+  padding: 28px 20px 34px;
+  position: relative;
+  background-color: #ffffff;
+  border: 4px solid #f21f2e;
+
+  /*
+   * 白いすき間と内側の赤線を作り、
+   * 二重枠のように見せる
+   */
+  box-shadow:
+    inset 0 0 0 5px #ffffff,
+    inset 0 0 0 7px #f21f2e;
+}
+
+/* 結果画面のタイトル */
+.result-title {
+  margin: 0;
+  padding: 8px 8px 27px;
+  color: var(--main);
+  font-size: clamp(1.25rem, 5vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-align: center;
+  border-bottom: 3px double #e8a5a9;
+}
+
+/* 画像と運勢 */
+.fortune-visual {
+  padding: 32px 8px 27px;
+  text-align: center;
+  border-bottom: 3px double #e8a5a9;
+}
+
+/* 運勢画像 */
+.fortune-image {
+  display: block;
+  width: 100%;
+  max-width: 270px;
+  height: 300px;
+  margin: 0 auto 22px;
+  object-fit: contain;
+}
+
+/* 「大吉」「凶」などの文字 */
+.fortune-name {
+  margin: 0;
+  color: var(--main);
+  font-size: clamp(3.8rem, 18vw, 5.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+}
+
+/* 各メッセージをまとめる部分 */
+.fortune-message-area {
+  padding: 26px 14px 0;
+}
+
+/* 総合運・恋愛運・金運の見出し */
+.fortune-heading {
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  color: var(--main);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid #edb8bc;
+}
+
+/* 運勢メッセージ */
+.fortune-text {
+  margin: 0 0 27px;
+  color: var(--main);
+  font-size: 1rem;
+  line-height: 2;
+  letter-spacing: 0.06em;
+}
+
+/* ラッキーアイテム・ラッキー言語 */
+.lucky-area {
+  margin-top: 8px;
+  padding-top: 22px;
+  border-top: 3px double #e8a5a9;
+}
+
+.lucky-area .fortune-text {
+  margin-bottom: 12px;
+}
+
+/* 結果画面のトップに戻るボタン */
+#retryButton {
+  display: block;
+  margin: 28px auto 0;
+}
+
+
+@keyframes shake-omikuji {
+  /* 前半：左右に揺れる */
+  0% {
+    transform: translateX(0) rotate(0deg) scale(1);
+  }
+
+  10% {
+    transform: translateX(-3px) rotate(-2deg) scale(1);
+  }
+
+  20% {
+    transform: translateX(3px) rotate(2deg) scale(1);
+  }
+
+  30% {
+    transform: translateX(-2px) rotate(-1.5deg) scale(1);
+  }
+
+  40% {
+    transform: translateX(2px) rotate(1.5deg) scale(1);
+  }
+
+  50% {
+    transform: translateX(0) rotate(0deg) scale(1);
+  }
+
+  /* 後半：ゆっくり拡大する */
+  70% {
+    transform: translateX(0) rotate(0deg) scale(1.03);
+  }
+
+  85% {
+    transform: translateX(0) rotate(0deg) scale(1.07);
+  }
+
+  100% {
+    transform: translateX(0) rotate(0deg) scale(1.06);
+  }
+}
+
+.omikuji-image.is-shaking {
+  transform-origin: center center;
+  animation: shake-omikuji 1.2s ease-in-out;
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   .draw-button {
     transition: none;
+  }
+
+  .omikuji-image.is-shaking {
+    animation: none;
   }
 }
